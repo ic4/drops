@@ -4,6 +4,7 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var sass = require('node-sass');
 
 var routes = require('./routes/index');
 
@@ -18,11 +19,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(require('node-compass')({
-    mode: 'expanded',
-    project: path.join(__dirname, 'scss'),
-    sass: '.',
-    css: '.'
+app.use(sass.middleware({
+    outputStyle: 'nested',
+    force: true,
+    //debug: true,
+    src: path.join(__dirname, 'scss')
 }));
 
 app.use('/scss', express.static(path.join(__dirname, 'scss')));
