@@ -22,8 +22,9 @@ app.use(cookieParser());
 app.use(sass.middleware({
     outputStyle: 'nested',
     force: true,
-    //debug: true,
-    src: path.join(__dirname, 'scss')
+    debug: true,
+    src: path.join(__dirname, 'scss'),
+    prefix: '/scss'
 }));
 
 app.use('/scss', express.static(path.join(__dirname, 'scss')));
