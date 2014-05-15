@@ -14,7 +14,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(favicon(__dirname + '/html/favicon.ico', { maxAge: 2592 }));
+app.use(favicon(__dirname + '/html/favicon.ico', { maxAge: 8640000000 })); // maxAge = 100 Days
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
